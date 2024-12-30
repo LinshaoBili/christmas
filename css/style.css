@@ -1,0 +1,399 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #1f285a, #000000);
+  user-select: none;
+  overflow: hidden;
+}
+#main {
+  transition: 0.5s;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+}
+/*星星*/
+#star {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+#star * {
+  position: absolute;
+  border-radius: 100%;
+  background-color: rgba(240, 248, 255, 0.6);
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 2;
+}
+#star *:hover {
+  transition: 0.15s;
+  transform: scale(5);
+  filter: blur(5px);
+}
+#star *.EGG.e1::after,
+#star *.EGG.e2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: inherit;
+  width: 100px;
+  height: 100px;
+  transform: translate(-40%,-50%);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  opacity: 0.9;
+  filter: blur(0.5px);
+}
+#star *.EGG.e1::after {
+  background-image: url(/img/egg_1.png);
+}
+#star *.EGG.e2::after {
+  background-image: url(/img/egg_2.png);
+}
+/*圣诞树*/
+#tree {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  width: 5%;
+  height: 8%;
+  transform: translate(-50%, -100%);
+}
+#tree * {
+  position: absolute;
+}
+#tree .trunk {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(85, 50, 5);
+  transform: translate(0%, -95%);
+  border-radius: 8px 5px;
+  box-shadow: 2px -1px 5px 0px #00000060 inset;
+}
+#tree .trunk::after {
+  width: 25%;
+  top: -5%;
+  right: 15%;
+  transform: rotate(5deg);
+  background-color: #00000010;
+}
+#tree .trunk::before {
+  width: 15%;
+  top: -15%;
+  left: 25%;
+  transform: rotate(-5deg);
+  background-color: #00000018;
+}
+#tree .trunk::after,
+#tree .trunk::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-radius: 50px;
+}
+#tree .branch {
+  transform: translate(-50%, -100%);
+  top: 5%;
+  left: 50%;
+  z-index: 1;
+}
+#tree .trunk_1,
+#tree .trunk_1::after,
+#tree .trunk_1::before {
+  background-color: #00000000;
+  box-shadow: none;
+}
+#tree .leaf {
+  aspect-ratio: 1 / 1;
+  border-radius: 0 100px;
+  box-shadow: 1px 5px 5px 0px rgba(25, 50, 35, 0.5) inset;
+  filter: blur(0.5px) hue-rotate(90deg) brightness(150%);
+  transition: 1s;
+}
+#tree .leaf:hover {
+  transition: 0.05s;
+  filter: blur(25px);
+}
+#tree .leaf::after {
+  content: "";
+  position: absolute;
+  height: 80%;
+  top: 10%;
+  left: 50%;
+  transform: rotate(-50deg);
+  box-shadow: 0 0 3px 1px #0000001f;
+  transition: 0.25s;
+}
+#tree .easterEgg {
+  aspect-ratio: 1 / 1;
+  border-radius: 100px;
+  background-color: cornsilk;
+  box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.5) inset;
+  user-select: auto;
+  transform: translate(-50%, -25%);
+  transition: 1s;
+  filter: blur(0.5px);
+  opacity: 0.9;
+}
+#tree .easterEgg::after {
+  content: "";
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  height: 20%;
+  border-radius: 100px;
+  opacity: 0.15;
+  background-color: #fff;
+}
+
+#tree .easterEgg:hover {
+  transition: 0.85s;
+  transform: translate(-50%, -40%) scale(1.2);
+  filter: blur(1.5px);
+}
+
+#tree .easterEgg:active {
+  transition: 0.25s;
+  transform: translate(-50%, -40%) scale(1.2);
+  filter: blur(50px);
+}
+/* 礼物 */
+.gift {
+  position: absolute;
+  aspect-ratio: 1 / 0.8;
+  height: 6%;
+  background-color: darkred;
+  border-radius: 0 0 10% 10%;
+  box-shadow: -1px 0 5px 0px #000000 inset;
+  transition: 1s;
+  filter: blur(0.75px);
+}
+.gift::after,
+.gift .giftboxlid::after {
+  content: "";
+  top: 0;
+  left: 50%;
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  transform: translate(-50%, 0%);
+  background-color: rgba(218, 165, 32, 0.9);
+  box-shadow: 0 0 5px 0px #00000081 inset;
+}
+.gift .giftboxlid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 110%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  background-color: inherit;
+  box-shadow: -1px 0 5px 0px #000000 inset;
+  border-radius: 10%;
+  z-index: 1;
+  transition: 1s;
+}
+
+.gift .stickers {
+  aspect-ratio: inherit;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 95%;
+  transform: translate(-50%, -50%);
+}
+.gift .star {
+  position: absolute;
+  display: block;
+  opacity: 0.8;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid goldenrod;
+  border-left: 100px solid transparent;
+  transform: rotate(35deg) scale(0.1) translate(-515%, 400%);
+}
+.gift .star:before {
+  border-bottom: 80px solid goldenrod;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.gift .star:after {
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid goldenrod;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
+
+.gift:not(.afoot):hover {
+  transition: 0.5s;
+  transform: translateY(-20%) rotate(5deg) scale(0.95);
+}
+.gift:not(.afoot):hover .giftboxlid {
+  transition: 0.5s;
+  transform: translateY(-100%) translateX(-50%) rotate(-10deg);
+}
+.gift.afoot {
+  transition: 0.5s;
+  filter: blur(0.5px);
+}
+.gift.afoot.open .giftboxlid {
+  transition: 0.9s ease-in-out;
+  transform: translateY(-130%) translateX(-90%) rotate(-50deg);
+}
+.gift.afoot.open.a1 .giftboxlid {
+  transition: 1.5s ease-out;
+  transform: translateY(-100%) translateX(-150%) rotate(-25deg);
+}
+.gift.afoot.open.a2 .giftboxlid {
+  transition: 0.5s ease-in;
+  transform: translateY(50%) translateX(-155%) rotate(-35deg);
+}
+.gift.afoot.open.a3 .giftboxlid {
+  transition: 0.5s ease-in;
+  transform: translateY(100%) translateX(-150%) rotate(-2.5deg);
+}
+.gift.afoot.open.a4 {
+  transition: 2s;
+  filter: blur(1px);
+}
+.gift.afoot.open.a5 {
+  opacity: 0.6;
+}
+
+/* BGM */
+#bgm {
+  position: absolute;
+  height: 55px;
+  width: 300px;
+  bottom: 0%;
+  border-radius: 100px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+#bgm audio {
+  margin: 0;
+  background-color: none;
+  border-radius: 100px;
+  transition: 0.75s;
+}
+.b-switch {
+  position: absolute;
+  transition: 0.5s;
+  transform: translate(-50%, -100%);
+  border-radius: 50% 50% 0 0;
+  background-color: rgb(241, 243, 244);
+  padding-left: 10px;
+  padding-right: 10px;
+  bottom: 60%;
+  left: 50%;
+  aspect-ratio: 1.5 / 1;
+  width: 10%;
+}
+.b-switch .button {
+  position: absolute;
+  top: 40%;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  aspect-ratio: 1.75 / 1;
+  transition: 0.75s;
+}
+.b-switch .button::after {
+  position: absolute;
+  top: -50%;
+  content: "";
+  width: 100%;
+  background-color: #000000a1;
+  border-radius: 50px 0 0 0;
+  transform: rotate(225deg) translate(-50%, -50%);
+  aspect-ratio: 1 / 1;
+}
+.b-switch.on {
+  z-index: 1;
+  transition: 1s;
+  border-radius: 50% 50% 20% 20%;
+  opacity: 0.25;
+  bottom: 35%;
+}
+.b-switch.on:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+.b-switch.on .button {
+  top: 70%;
+  transform: translate(-50%, -50%) scaleY(-1);
+  transition: 0.75s;
+}
+.b-switch.on + audio {
+  transition: 0.25s;
+  opacity: 0;
+  height: 0;
+}
+/*info*/
+#info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#info * {
+  position: absolute;
+}
+#bro {
+  transition: 1s;
+  color: #767faf;
+  transform: rotate(-20deg) translateX(10%);
+  font-family: "KaiTi";
+}
+#bro.a1 {
+  transition: 2s linear;
+  transform: translateY(-50%) rotate(-20deg) translateX(10%);
+  z-index: 5;
+}
+#bro.a2 {
+  transform: translateY(-80%) rotate(-10deg) translateX(0%);
+}
+#bro.a3 {
+  transition: 1s;
+  transform: translateY(-150%) translateX(10%);
+  color: #313f8b;
+  text-shadow: 1px 1px 5px #000;
+}
+#bro.a4 {
+  transition: 3s;
+  transform: rotate(2.5deg);
+  text-shadow: 1px 1px 8px #085726;
+}
+#bro.a5 {
+  transform: rotate(10deg);
+}
