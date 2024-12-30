@@ -5,7 +5,7 @@ function MathRandom(max, min) {
 bro = "汖秋";
 EGG = false;
 bgm = { start: true };
-var PreloadAudio = ["We Wish You a Merry Christmas"];
+var PreloadAudio = ["We Wish You a Merry Christmas", "シーズ - Fashionable"];
 var PreloadImg = ["egg_1", "egg_2"];
 function FontSize() {
   var Ele = document.querySelectorAll("#info *");
